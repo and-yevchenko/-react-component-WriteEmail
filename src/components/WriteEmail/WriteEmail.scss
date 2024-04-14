@@ -1,0 +1,99 @@
+.write-email {
+    width: 720px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    &__title {
+        font-size: 20px;
+        font-weight: 500;
+    }
+    &__footer {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.contact {
+    padding: 20px 0 10px 0;
+    &__label {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        color: #8d8d8d;
+    }
+    &__sender {
+        width: 100%;
+        background-color: #00000000;
+        font-size: 14px;
+        color: #000;
+        margin: 10px 0;
+        padding: 5px;
+        border-bottom: 1px solid rgba(173, 173, 173, 0.411);
+        &:hover::placeholder,
+        &:focus::placeholder {
+            color: #313131;
+        }
+    }
+    &__receiver {
+        font-size: 14px;
+        color: #000;
+        margin: 10px 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background-color: #d4d4d470;
+        border-radius: 20px;
+        border: 1px solid #8d8d8d;
+        padding: 4px;
+        transition: background-color 0.3s ease;
+        &:hover {
+        background-color: #d4d4d43a;
+        transition: background-color 0.3s ease;
+        }
+    }
+}
+.mail {
+    padding: 20px 0;
+    transition: border 0.5s ease;
+    border-top: 1px solid #8d8d8d00;
+    border-bottom: 1px solid #8d8d8d00;
+    &:hover,
+    &:focus {
+        border-top: 1px solid #8d8d8d27;
+        border-bottom: 1px solid #8d8d8d27;
+        transition: border 0.5s ease;
+    }
+    > :first-child {
+        width: 100%;
+        min-height: 240px;
+        @media screen and (max-width: 426px) {
+            min-height: 180px;
+        }
+    }
+}
+.buttons {
+    display: flex;
+    gap: 15px;
+    > * {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    &__cancel {
+        background-color: #e6e6e6;
+        transition: background-color 0.5s ease;
+        &:hover {
+            background-color: #cfcfcf;
+        }
+    }
+    &__send {
+        background-color: #3c3cff;
+        color: #fff;
+        transition: transform 0.3s ease;
+        &:hover {
+            transform: scale(1.15);
+        }
+    }
+}

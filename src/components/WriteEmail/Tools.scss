@@ -1,0 +1,110 @@
+.tiptap {
+    > * + * {
+        margin-top: 0.75em;
+    }
+    ul, ol {
+        padding: 0 1rem;
+    }
+    ul li {
+        list-style-type: disc;
+    }
+    code {
+        background-color: rgba(#616161, 0.1);
+        color: #616161;
+    }
+    pre {
+        background: #0D0D0D;
+        color: #FFF;
+        font-family: 'JetBrainsMono', monospace;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        code {
+            color: inherit;
+            padding: 0;
+            background: none;
+            font-size: 0.8rem;
+        }
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    blockquote {
+        padding-left: 1rem;
+        border-left: 2px solid rgba(#0D0D0D, 0.1);
+    }
+    hr {
+        border-top: 1px solid #3c3cff8f;
+    }
+}
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    > button:hover .tools__tip {
+        display: block;
+    }
+    &__tip {
+        background-color: #0d0d0d91;
+        display: none;
+        color: #FFF;
+        font-size: 12px;
+        padding: 10px;
+        border-radius: 5px;
+        position: absolute;
+        text-wrap: nowrap;
+        z-index: 1;
+        top: calc(100% + 5px);
+        left: 50%;
+        transform: translateX(-50%);
+        line-height: 0px;
+        font-weight: 500;
+    }
+    &-panel {
+        gap: 10px;
+        > button {
+            :first-child  {
+                height: 20px;
+                color: #313131;
+            }
+            padding: 5px;
+            border: 2px solid #e6e6e6;
+            border-radius: 10px;
+            position: relative;
+            line-height: 0;
+            text-align: center;
+            background-color: #e6e6e64d;
+            &:hover {
+                background-color: #e6e6e6b0;
+            }
+        }
+        .is-active {
+            border: 2px solid #3c3cff;
+        }
+    }
+    &-float {
+        gap: 2px;
+        background-color: #e6e6e6;
+        padding: 3px;
+        border-radius: 5px;
+        > button {
+            :first-child  {
+                height: 16px;
+                width: 16px;
+                color: #313131;
+            }
+            padding: 3px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            position: relative;
+            line-height: 0;
+            text-align: center;
+            background-color: #e6e6e64d;
+            &:hover {
+                background-color: #cccccc;
+            }
+        }
+        .is-active {
+            border: 1px solid #3c3cff;
+        }
+    }
+}
