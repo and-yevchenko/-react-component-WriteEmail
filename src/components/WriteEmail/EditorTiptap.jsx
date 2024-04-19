@@ -28,7 +28,7 @@ const extensions = [
 const content = `<p>Hey Andrii Yevchenko!</p>`
 
 
-export const EditorTiptap = () => {
+export const EditorTiptap = ({setTemplateParams}) => {
   const [isBtnFloat, setIsBtnFloat] = useState(true)
 
   
@@ -37,17 +37,17 @@ export const EditorTiptap = () => {
       <FloatingMenu>
         {isBtnFloat && 
           <div className="tools tools-float">
-            <Tools isBtnFloat={isBtnFloat} setIsBtnFloat={setIsBtnFloat} />
+            <Tools isBtnFloat={isBtnFloat} setIsBtnFloat={setIsBtnFloat} setTemplateParams={setTemplateParams} />
           </div>}  
       </FloatingMenu>
       <BubbleMenu>
         {isBtnFloat && 
           <div className="tools tools-float">
-            <Tools isBtnFloat={isBtnFloat} setIsBtnFloat={setIsBtnFloat} />
+            <Tools isBtnFloat={isBtnFloat} setIsBtnFloat={setIsBtnFloat} setTemplateParams={setTemplateParams}/>
           </div>} 
       </BubbleMenu>
       <div className="tools tools-panel">
-        <Tools isBtnFloat={isBtnFloat} setIsBtnFloat={setIsBtnFloat} />
+        <Tools isBtnFloat={isBtnFloat} setIsBtnFloat={setIsBtnFloat} setTemplateParams={setTemplateParams} undoRedo={true}/>
       </div>
     </EditorProvider>
   )

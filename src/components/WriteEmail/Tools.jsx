@@ -5,8 +5,7 @@ import { Bold, Italic, Strikethrough, Code, SquareTerminal, Quote,
 import { useKnowOS } from "../../hooks/useKnowOS"
 
 
-
-export const Tools = ( {isBtnFloat, setIsBtnFloat} ) => {
+export const Tools = ( {isBtnFloat, setIsBtnFloat, setTemplateParams, undoRedo} ) => {
   
   const { os } = useKnowOS()
 
@@ -14,6 +13,15 @@ export const Tools = ( {isBtnFloat, setIsBtnFloat} ) => {
   if (!editor) {
     return null
   }
+  
+  editor.on('blur', ({ editor }) => {
+    setTemplateParams(prev => {
+      return {
+        ...prev,
+        notes: editor.getText()
+      }
+    })
+  })
 
   return (
     <>
@@ -113,6 +121,8 @@ export const Tools = ( {isBtnFloat, setIsBtnFloat} ) => {
             <div className="tools__tip">Horizontal line</div>
       </button>
 
+      {undoRedo && 
+      <>
       <button
         onClick={() => editor.chain().focus().undo().run()}
         disabled={
@@ -125,7 +135,6 @@ export const Tools = ( {isBtnFloat, setIsBtnFloat} ) => {
             <Undo color="#3c3cff"/>{/* undo */}
             <div className="tools__tip">Undo</div>
       </button>
-
       <button
         onClick={() => editor.chain().focus().redo().run()}
         disabled={
@@ -138,6 +147,10 @@ export const Tools = ( {isBtnFloat, setIsBtnFloat} ) => {
             <Redo color="#3c3cff"/>{/* redo */}
             <div className="tools__tip">Redo</div>
       </button>
+      </>
+      }
+
+    
 
       <button
         onClick={() => {setIsBtnFloat(!isBtnFloat)}}>
