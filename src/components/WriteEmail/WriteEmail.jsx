@@ -2,7 +2,7 @@ import './WriteEmail.scss'
 import { CircleUserRound } from 'lucide-react'
 import { EditorTiptap } from './EditorTiptap'
 import { useState } from 'react'
-import { sendEmail } from './sendEmail';
+import { useSendEmail } from '../../hooks/useSendEmail';
 import { emailID } from './emailID';
 
 
@@ -12,6 +12,8 @@ export function WriteEmail() {
     name: '',
     notes: '',
   })
+
+  const { send, result } = useSendEmail()
 
 
   return (
@@ -37,7 +39,8 @@ export function WriteEmail() {
         <div className="write-email__footer footer">
           <div className="footer__buttons buttons">
             <button className='buttons__cancel'>Cancel</button>
-            <button className='buttons__send' onClick={() => sendEmail(templateParams)}>Send</button>
+            <button className='buttons__send' onClick={() => send(templateParams)}>Send</button>
+            {result}
           </div>
         </div>
     </div>
